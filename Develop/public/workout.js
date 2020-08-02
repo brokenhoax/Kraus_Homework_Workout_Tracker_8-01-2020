@@ -1,3 +1,6 @@
+const API = require("../routes/api");
+// const express = require("express");
+
 async function initWorkout() {
   const lastWorkout = await API.getLastWorkout();
   console.log("Last workout:", lastWorkout);

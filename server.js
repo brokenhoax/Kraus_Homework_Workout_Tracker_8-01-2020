@@ -1,10 +1,7 @@
 const express = require("express");
 const logger = require("morgan");
 const mongoose = require("mongoose");
-const Workout = require("./models/workoutModel");
 const router = require("express").Router();
-
-// const routes = require("./controller/api");
 
 const PORT = process.env.PORT || 3000;
 
@@ -28,31 +25,11 @@ app.listen(PORT, () => {
   console.log(`App running on port ${PORT}!`);
 });
 
-// get routes
-// routes.API(app);
+// Import Routes
+const api = require('./routes/api')
 
-// test route
+// Set Routes
+app.use('/api', api)
 
-app.post("/test", ({ body }, res) => {
-  res.json({
-    confirmation: "success",
-    data: "this is the test endpoint!",
-  });
-});
 
-router.get("/try", ({ body }, res) => {
-
-  Workout.find()
-  .then(workouts => {
-    res.json({
-      confirmation: "success",
-      data: workouts
-    })
-  })
-  .catch(err => {
-    res.json({
-      confirmation: "fail",
-      message: err.message
-    })
-  })
-});
+module.exports = app;

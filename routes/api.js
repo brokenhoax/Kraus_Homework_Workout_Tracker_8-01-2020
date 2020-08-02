@@ -1,3 +1,7 @@
+const router = require("express").Router();
+
+const Workout = require("../models/workoutModel");
+
 const API = {
   async getLastWorkout() {
     let res;
@@ -43,4 +47,22 @@ const API = {
   },
 };
 
-module.exports = API;
+
+router.get("/try", ({ body }, res) => {
+
+  Workout.find()
+  .then(workouts => {
+    res.json({
+      confirmation: "success",
+      data: workouts
+    })
+  })
+  .catch(err => {
+    res.json({
+      confirmation: "fail",
+      message: err.message
+    })
+  })
+});
+
+module.exports = router;

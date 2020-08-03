@@ -1,12 +1,14 @@
 const express = require("express");
 const logger = require("morgan");
 const mongoose = require("mongoose");
-const router = require("express").Router();
+var cors = require('cors');
+// const router = require("express").Router();
 
 const PORT = process.env.PORT || 3000;
 
 const app = express();
 
+app.use(cors())
 app.use(logger("dev"));
 app.use(express.static("public"));
 app.use(
@@ -25,11 +27,15 @@ app.listen(PORT, () => {
   console.log(`App running on port ${PORT}!`);
 });
 
-// Import Routes
-const api = require('./routes/api')
+// // Import Routes
+// const api = require('./public/api')
 
-// Set Routes
-app.use('/api', api)
+// // Set Routes
+// app.use('/api', api)
 
+const db = require("./models");
 
-module.exports = app;
+require("./routes/apiRoutes")(app);
+require("./routes/htmlRoutes")(app);
+
+module.exports = app; 

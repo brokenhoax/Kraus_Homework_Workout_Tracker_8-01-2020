@@ -5,6 +5,7 @@ let mongoose = require("mongoose");
 
 //Why Can I Use This???
 //Basically, why do I have to use an "index.js" file in the models folder for the export to work?
+
 const db = require("../models");
 
 mongoose.connect("mongodb://localhost/workout", {

@@ -1,6 +1,6 @@
-const router = require("express").Router();
+// const router = require("express").Router();
 
-const Workout = require("../models/workoutModel");
+// const Workout = require("../models/workoutModel");
 
 const API = {
   async getLastWorkout() {
@@ -48,21 +48,23 @@ const API = {
 };
 
 
-router.get("/try", ({ body }, res) => {
+// Original Test To Pull All Exercises via Postman
 
-  Workout.find()
-  .then(workouts => {
-    res.json({
-      confirmation: "success",
-      data: workouts
-    })
-  })
-  .catch(err => {
-    res.json({
-      confirmation: "fail",
-      message: err.message
-    })
-  })
-});
+// router.get("/try", ({ body }, res) => {
 
-module.exports = router;
+//   Workout.find()
+//   .then(workouts => {
+//     res.json({
+//       confirmation: "success",
+//       data: workouts
+//     })
+//   })
+//   .catch(err => {
+//     res.json({
+//       confirmation: "fail",
+//       message: err.message
+//     })
+//   })
+// });
+
+// module.exports = router;

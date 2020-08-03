@@ -1,3 +1,5 @@
+// const API = require("../routes");
+
 const workoutTypeSelect = document.querySelector("#type");
 const cardioForm = document.querySelector(".cardio-form");
 const resistanceForm = document.querySelector(".resistance-form");
@@ -32,6 +34,8 @@ async function initExercise() {
 
 initExercise();
 
+// Update Form Based on User Selection of Cario or Resistance
+
 function handleWorkoutTypeChange(event) {
   workoutType = event.target.value;
 
@@ -48,6 +52,9 @@ function handleWorkoutTypeChange(event) {
 
   validateInputs();
 }
+
+
+// Validating User Inputs
 
 function validateInputs() {
   let isValid = true;
@@ -94,6 +101,9 @@ function validateInputs() {
     addButton.setAttribute("disabled", true);
   }
 }
+
+
+// Creating Object from User Input and Adding Object to Database
 
 async function handleFormSubmit(event) {
   event.preventDefault();

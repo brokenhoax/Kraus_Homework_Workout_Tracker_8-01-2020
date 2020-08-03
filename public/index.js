@@ -1,5 +1,3 @@
-const API = require("../routes/api");
-
 init();
 
 async function init() {

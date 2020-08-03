@@ -1,5 +1,4 @@
-const API = require("../routes/api");
-// const express = require("express");
+// const API = require("../routes/api");
 
 async function initWorkout() {
   const lastWorkout = await API.getLastWorkout();
@@ -47,6 +46,8 @@ function formatDate(date) {
   return new Date(date).toLocaleDateString(options);
 }
 
+// Function that renders the Workout Summary on the homepage
+
 function renderWorkoutSummary(summary) {
   const container = document.querySelector(".workout-stats");
 
@@ -74,6 +75,7 @@ function renderWorkoutSummary(summary) {
   });
 }
 
+// Function that renders a message to the user if no workouts added yet.
 function renderNoWorkoutText() {
   const container = document.querySelector(".workout-stats");
   const p = document.createElement("p");
